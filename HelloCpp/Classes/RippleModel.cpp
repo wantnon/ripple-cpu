@@ -1,10 +1,4 @@
-//
-//  RippleModel.cpp
-//  HelloWorld
-//
-//  Created by �� ���� on 12-4-7.
-//  Copyright (c) 2012�� chukong-inc. All rights reserved.
-//
+
 
 #include <iostream>
 using namespace std;

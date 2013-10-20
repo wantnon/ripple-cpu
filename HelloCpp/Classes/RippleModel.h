@@ -1,10 +1,4 @@
-//
-//  RippleModel.h
-//  HelloWorld
-//
-//  Created by ?? ???? on 12-4-7.
-//  Copyright (c) 2012?? chukong-inc. All rights reserved.
-//
+
 
 #ifndef HelloWorld_RippleModel_h
 #define HelloWorld_RippleModel_h

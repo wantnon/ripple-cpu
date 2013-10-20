@@ -1,10 +1,4 @@
-//
-//  SceneNode.cpp
-//  HelloWorld
-//
-//  Created by ???? ?? on 12-4-18.
-//  Copyright 2012?? chukong-inc. All rights reserved.
-//
+
 
 #include "SceneNode.h"
 #include <iostream>

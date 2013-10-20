@@ -1,10 +1,3 @@
-//
-//  SceneNode.h
-//  HelloWorld
-//
-//  Created by ���� �� on 12-4-18.
-//  Copyright 2012�� chukong-inc. All rights reserved.
-//
 
 #ifndef HelloWorld_SceneNode_h
 #define HelloWorld_SceneNode_h
