@@ -141,6 +141,8 @@ bool RippleModel::initWithScreenWidth( int width,
     touchRadius = radius;
     textureWidth = texWidth ;
     textureHeight = texHeight ;
+    CCLOG("meshFactor:%f",(float)meshFactor);
+    CCLOG("pool size:%f,%f",(float)poolWidth,(float)poolHeight);
 
    
     
@@ -213,6 +215,7 @@ void RippleModel::runSimulation()
 
  	isNeedSimulation = false;//fist assume no need to simulate
 	float resultModify = (isRepeat) ? 0.5f : (0.5f - 0.5f / rippleStrength);//if repeat then no Attenuation else with Attenuation
+    CCLOG("rippleStrength:%f",(float)rippleStrength);
     static const float kOneDiv1048 = 1.0f / 1048.0f;
 
 	int y0, y1, y2, y3;
@@ -243,8 +246,8 @@ void RippleModel::runSimulation()
 			}
 
 			// clamp
-            s_offset = ((c - d) * kOneDiv1048);
-			t_offset = ((b - a) * kOneDiv1048);
+            s_offset = ((b - a) * kOneDiv1048);
+			t_offset = ((c - d) * kOneDiv1048);
             rippleTexCoords[(y0 + x)*2] = (s_tcBuff[x] + s_offset);
             rippleTexCoords[(y0 + x)*2+1] = (t_tcBuff[y] + t_offset);
 

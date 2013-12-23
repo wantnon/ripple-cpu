@@ -14,6 +14,9 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
+		5724DDA81867D26200307FF1 /* indexVBO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5724DDA21867D26200307FF1 /* indexVBO.cpp */; };
+		5724DDA91867D26200307FF1 /* RippleModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5724DDA41867D26200307FF1 /* RippleModel.cpp */; };
+		5724DDAA1867D26200307FF1 /* SceneNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5724DDA61867D26200307FF1 /* SceneNode.cpp */; };
 		BF1373EF128A898400D9F789 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF492D4B1289302400A09262 /* OpenGLES.framework */; };
 		BF1373F0128A899500D9F789 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF492C21128924A800A09262 /* libxml2.dylib */; };
 		BF1373F1128A899E00D9F789 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF492B6912891AC600A09262 /* libz.dylib */; };
@@ -59,6 +62,12 @@
 		1D6058910D05DD3D006BFB54 /* HelloCpp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloCpp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		5724DDA21867D26200307FF1 /* indexVBO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = indexVBO.cpp; sourceTree = "<group>"; };
+		5724DDA31867D26200307FF1 /* indexVBO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = indexVBO.h; sourceTree = "<group>"; };
+		5724DDA41867D26200307FF1 /* RippleModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RippleModel.cpp; sourceTree = "<group>"; };
+		5724DDA51867D26200307FF1 /* RippleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RippleModel.h; sourceTree = "<group>"; };
+		5724DDA61867D26200307FF1 /* SceneNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneNode.cpp; sourceTree = "<group>"; };
+		5724DDA71867D26200307FF1 /* SceneNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneNode.h; sourceTree = "<group>"; };
 		781C33B11547F06B00633F88 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		781C33B31547F06B00633F88 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		781C33B51547F06B00633F88 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -173,6 +182,12 @@
 				1A1CF3661626CB6000AFC938 /* AppMacros.h */,
 				BF23D4E3143315EB00657E08 /* AppDelegate.cpp */,
 				BF23D4E4143315EB00657E08 /* AppDelegate.h */,
+				5724DDA21867D26200307FF1 /* indexVBO.cpp */,
+				5724DDA31867D26200307FF1 /* indexVBO.h */,
+				5724DDA41867D26200307FF1 /* RippleModel.cpp */,
+				5724DDA51867D26200307FF1 /* RippleModel.h */,
+				5724DDA61867D26200307FF1 /* SceneNode.cpp */,
+				5724DDA71867D26200307FF1 /* SceneNode.h */,
 				BF23D4E5143315EB00657E08 /* HelloWorldScene.cpp */,
 				BF23D4E6143315EB00657E08 /* HelloWorldScene.h */,
 			);
@@ -281,8 +296,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5724DDA91867D26200307FF1 /* RippleModel.cpp in Sources */,
 				BF365AA812A103F70050DCF4 /* AppController.mm in Sources */,
+				5724DDAA1867D26200307FF1 /* SceneNode.cpp in Sources */,
 				BF4DE6AD138BB89600CF907D /* RootViewController.mm in Sources */,
+				5724DDA81867D26200307FF1 /* indexVBO.cpp in Sources */,
 				D4ABB4B313B4395300552E6E /* main.m in Sources */,
 				BF23D4E7143315EB00657E08 /* AppDelegate.cpp in Sources */,
 				BF23D4E8143315EB00657E08 /* HelloWorldScene.cpp in Sources */,

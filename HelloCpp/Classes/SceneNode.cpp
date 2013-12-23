@@ -26,7 +26,7 @@ SceneNode::~SceneNode()
 bool SceneNode::initWithTexture(std::string textureName) 
 {
 	//create texture
-    _texture = CCTextureCache::sharedTextureCache()->addImage(textureName.c_str()) ;//��ʱ_texture��retainCountΪ1
+    _texture = CCTextureCache::sharedTextureCache()->addImage(textureName.c_str()) ;
 	if(_texture==NULL)return false;
     //create ripple model
     _ripple = new RippleModel() ;
@@ -34,12 +34,12 @@ bool SceneNode::initWithTexture(std::string textureName)
 	cout<<"winSize:"<<(int)CCDirector::sharedDirector()->getWinSize().width<<" "<<(int)CCDirector::sharedDirector()->getWinSize().height<<endl;
     _ripple->initWithScreenWidth((int)CCDirector::sharedDirector()->getWinSize().width ,
                                      (int)CCDirector::sharedDirector()->getWinSize().height,
-                                     3,//6, //this value need further adjusting
+                                     4,
                                      2,
                                      (int)CCDirector::sharedDirector()->getWinSize().width ,
                                      (int)CCDirector::sharedDirector()->getWinSize().height
                                      ) ;
-	_ripple->setRippleStrength(false,32);
+	_ripple->setRippleStrength(false,16);
 	//create and init indexVBO
 	CindexVBO::enableAttribArrays();
 	_indexVBO=new CindexVBO();
@@ -55,8 +55,7 @@ bool SceneNode::initWithTexture(std::string textureName)
 	_ripple->initiateRippleAtLocation(ccp(100,100));
 	//enable touch
 	setTouchEnabled( true );
-	//
-	setShaderProgram(CCShaderCache::sharedShaderCache()->programForKey(kCCShader_PositionTexture));
+
 	//start update 
 	scheduleUpdate();
     return true ;
@@ -68,10 +67,11 @@ void SceneNode::update(float t){
 	//submit texCoord data to vbo
 	//(because only texCoord data were modified)
 	_indexVBO->submitTexCoord(_ripple->getTexCoordArray(),_ripple->getTexCoordArrayLen(),GL_DYNAMIC_DRAW);
+ 
 }
 void SceneNode::draw()
 {
-	    
+	setShaderProgram(CCShaderCache::sharedShaderCache()->programForKey(kCCShader_PositionTexture));
     CC_NODE_DRAW_SETUP();
 	//bind texture
 	CindexVBO::bindTexture(GL_TEXTURE0,_texture->getName());
