@@ -52,6 +52,11 @@ bool HelloWorld::init()
     /////////////////////////////
     // 3. add your codes below...
 
+    CCDirector::sharedDirector()->setDisplayStats(true);//false
+    
+    CCSize winSize=CCDirector::sharedDirector()->getWinSize();
+    
+    
 	SceneNode*sceneNode=new SceneNode();
 	sceneNode->initWithTexture("HelloWorld.png");
 	sceneNode->setPosition(ccp(0,0));
@@ -59,7 +64,26 @@ bool HelloWorld::init()
 	this->addChild(sceneNode);
 
 	
-
+    //contolButton
+    {
+        CCScale9Sprite* btnUp=CCScale9Sprite::create("button.png");
+        CCScale9Sprite* btnDn=CCScale9Sprite::create("button_dn.png");
+        CCLabelTTF*title=CCLabelTTF::create("RTT", "Helvetica", 15);
+        CCControlButton* controlButton=cocos2d::extension::CCControlButton::create(title, btnUp);
+        controlButton->setBackgroundSpriteForState(btnDn,cocos2d::extension::CCControlStateHighlighted);
+        controlButton->setPreferredSize(CCSize(40,40));
+        controlButton->setPosition(ccp(300+100,60));
+        controlButton->addTargetWithActionForControlEvents(this, (cocos2d::extension::SEL_CCControlHandler)(&HelloWorld::controlButtonCallback), cocos2d::extension::CCControlEventTouchDown);
+        addChild(controlButton);
+        m_controlButton=controlButton;
+    }
+    
+    //renderTexture
+    m_renderTex = CCRenderTexture::create(int(winSize.width), int(winSize.height));
+    m_renderTex->setPosition(ccp(origin.x+visibleSize.width/2*0.3,origin.y+visibleSize.height/2*0.3));
+    m_renderTex->setScale(0.3);
+    m_renderTex->retain();
+    
     // add a label shows "Hello World"
     // create and initialize a label
     
@@ -82,6 +106,21 @@ bool HelloWorld::init()
     this->addChild(pSprite, 0);
     */
     return true;
+}
+void HelloWorld::controlButtonCallback(CCObject *senderz, CCControlEvent controlEvent){
+    //CCLOG("HI");
+    
+    if(m_renderTex->getParent()==this)m_renderTex->removeFromParent();
+    
+    m_renderTex->begin();
+    {
+        CCDirector::sharedDirector()->getRunningScene()->visit();
+    }
+    m_renderTex->end();
+
+    addChild(m_renderTex);
+
+
 }
 
 

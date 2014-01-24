@@ -215,7 +215,7 @@ void RippleModel::runSimulation()
 
  	isNeedSimulation = false;//fist assume no need to simulate
 	float resultModify = (isRepeat) ? 0.5f : (0.5f - 0.5f / rippleStrength);//if repeat then no Attenuation else with Attenuation
-    CCLOG("rippleStrength:%f",(float)rippleStrength);
+ //   CCLOG("rippleStrength:%f",(float)rippleStrength);
     static const float kOneDiv1048 = 1.0f / 1048.0f;
 
 	int y0, y1, y2, y3;
